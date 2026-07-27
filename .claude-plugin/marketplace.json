@@ -1,0 +1,21 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "message-test",
+  "description": "Tools for measuring whether a document actually delivers its message to its readers",
+  "owner": {
+    "name": "Babak Bandpey",
+    "email": "bb@cocode.dk"
+  },
+  "plugins": [
+    {
+      "name": "message-test",
+      "description": "Measure how well a document conveys its message: a scored clarity index, a fresh-reader extraction test, and a human cloze test. Based on ISO 24495-1, the CDC Clear Communication Index and the cloze procedure.",
+      "author": {
+        "name": "Babak Bandpey",
+        "email": "bb@cocode.dk"
+      },
+      "category": "writing",
+      "source": "./plugins/message-test"
+    }
+  ]
+}

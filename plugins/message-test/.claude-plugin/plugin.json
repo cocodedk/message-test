@@ -1,0 +1,9 @@
+{
+  "name": "message-test",
+  "version": "1.0.0",
+  "description": "Measure how well a document conveys its message. A scored clarity index you can run in minutes, a fresh-reader extraction test that catches drift between a document and the artifacts made from it, and a cloze test for real readers. Built on ISO 24495-1:2023, the CDC Clear Communication Index and the cloze procedure.",
+  "author": {
+    "name": "Babak Bandpey",
+    "email": "bb@cocode.dk"
+  }
+}
