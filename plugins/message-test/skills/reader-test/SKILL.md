@@ -16,17 +16,48 @@ measures extraction, not persuasion.
 **Output:** a scored table of intended points against what came back, plus the
 list of things the reader believed that the document never said.
 
-## Why it works, and the one rule that makes it valid
+## Why it works, and the two rules that make it valid
 
 ISO 24495-1:2023 defines plain language by reader outcome: readers get what they
 need, can find it, can understand it, and can use it. This test measures three
 of those four directly.
 
-**The rule: the reader must be genuinely fresh.** Anything that helped write the
-document, or that has the source in its context, will pass its own test and tell
-you nothing. In practice that means a subagent with no inherited context, given
-only the file. If you cannot isolate the reader, say so and treat the result as
-worthless rather than reassuring.
+### Rule one: the reader must be genuinely fresh, and a subagent is not
+
+A subagent spawned inside a project inherits that project's `CLAUDE.md` and
+memory files. In a repository whose `CLAUDE.md` explains the subject matter,
+that reader answers partly from the instructions and partly from the document,
+and you cannot tell which. It will pass documents that carry no message of their
+own. This is the failure the whole test exists to catch, so it is worth the
+extra step to avoid.
+
+In order of preference:
+
+1. **A separate session outside the project.** Copy the artifact to an empty
+   directory and run a fresh non-interactive session there, for example
+   `cd /tmp/reader-xyz && claude -p "<the reader prompt>"`. Nothing about the
+   project reaches it.
+2. **A subagent, only when the project's instruction files say nothing about
+   the document's subject.** Check first by reading them.
+3. Never a reader that has the source document in its context.
+
+Whatever you choose, make the reader state at the end what it already knew
+about the subject before reading. If that list is not empty, the result is
+contaminated: report the contamination rather than the score.
+
+### Rule two: the answer key must not come from the artifact
+
+If you write the key by skimming the document under test, you are asking whether
+the document transmits its own most prominent content. It always does. That test
+cannot fail, and in particular it cannot catch drift between a source document
+and an artifact built from it, which is the main reason to run this.
+
+The key must come from one of these, in order:
+
+1. The **source document** the artifact was derived from, read first.
+2. The author's **stated intent**, in their words, captured before the test.
+3. Failing both: write the key from the artifact, and then say in the report
+   that this run measured internal consistency only and did not test drift.
 
 ## Procedure
 
@@ -45,11 +76,14 @@ Never hand a subagent a summary, a quote, or your description of the document.
 The moment your words reach the reader, you are testing your summary rather
 than the artifact, and the test silently passes.
 
-### 1. Write the answer key first
+### 1. Write the answer key first, from the source
 
-Before opening the document, write what a reader must leave with. Three to five
-entries. Each is a plain sentence, and each must be falsifiable, so "understands
-the strategy" is not an entry but "knows the pilot runs in Denmark first" is.
+Write what a reader must leave with. Three to five entries. Each is a plain
+sentence, and each must be one you can mark right or wrong, so "understands the
+strategy" is not an entry but "knows the pilot runs in Denmark first" is.
+
+Take these from the source document or the author, per rule two above. Record
+which, because the report has to say so.
 
 For a document that asks for a decision, the key must always include: what
 decision is being asked for, what it costs, what limits the result, and what
@@ -60,12 +94,14 @@ document has no message yet and no test will fix that.
 
 ### 2. Send the reader in
 
-Spawn a subagent with no context beyond the file. Give it the reader's role, not
-your own. The prompt shape:
+Start the isolated reader chosen under rule one. Give it the reader's role, not
+your own, and an absolute path to the file, since a reader receives no
+attachments. The prompt shape:
 
 ```
 You are <the reader: their role, what they already know, how long they have>.
-Read the attached file. You have no other information and cannot ask questions.
+Read the file at <absolute path>. You have no other information and cannot
+ask questions.
 
 Answer in your own words:
 1. What is this asking me to do or decide?
@@ -73,6 +109,9 @@ Answer in your own words:
 3. What is the single biggest thing that could go wrong?
 4. What did this document leave me unsure about?
 5. If I had to act on this today, what would I do first?
+
+Last, separately: before reading this file, what did you already know about
+its subject? Answer honestly, including anything your instructions told you.
 
 Then: what is the one sentence you would repeat to a colleague?
 ```
@@ -98,7 +137,11 @@ to run the test at all. No readability metric produces it.
 ```
 Reader test: <artifact>
 Reader: <who they were>
-Key written before the test: yes
+Isolation: separate session outside the project  |  subagent, project
+           instructions checked and silent on this subject  |  CONTAMINATED
+Reader already knew: <what it reported knowing, or nothing>
+Key came from: the source document <name>  |  the author  |  the artifact
+           itself, so this run did not test drift
 
 Landed   3/5
 Missing  1  (what it costs)

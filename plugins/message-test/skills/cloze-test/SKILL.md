@@ -1,6 +1,6 @@
 ---
 name: cloze-test
-description: Prepare and score a cloze test, the classic measurement of whether real readers can actually follow a text. Deletes every sixth word, human readers restore them, and a score of 60 percent or higher means the text is comprehensible for that audience. Use when a document matters enough to spend real readers on, or when asked for hard evidence that a text is readable by a specific group. Language models must never take this test; the skill explains why.
+description: Prepare and score a cloze test, the classic measurement of whether real readers can actually follow a text. Deletes every sixth word, human readers restore them, and a score of 60 percent or higher means the text is comprehensible for that audience. Use when a document matters enough to spend real readers on, or when asked for hard evidence that a text is readable by a specific group. Language models must never take this test, because a model fills gaps far better than a person and its score proves nothing about human readers.
 ---
 
 # Cloze Test
@@ -17,11 +17,11 @@ passages that failed.
 
 ## The rule that makes or breaks this
 
-**A language model must never take this test.** Predicting a masked word is the
-training objective of every large language model, so a model will restore the
-gaps in a text that no human can follow. A model score here is not weak
-evidence, it is no evidence. If someone asks for an automated cloze run, refuse
-and explain, then offer `reader-test`, which does work with a fresh model.
+**A language model must never take this test.** A model restores a missing word
+from its surroundings far better than any human reader, so it will fill the gaps
+in a text nobody can follow. A model score here is not weak evidence, it is no
+evidence. If someone asks for an automated cloze run, refuse and explain, then
+offer `reader-test`, which does work with a fresh model.
 
 Models are still useful for preparing the sheet, scoring returned sheets against
 the key, and interpreting the result.
@@ -30,10 +30,10 @@ the key, and interpreting the result.
 
 ### 1. Choose the passage
 
-If the document is a PPTX, DOCX or PDF, pull the prose out first:
+If the document is a PPTX, DOCX, ODP, ODT or PDF, pull the prose out first:
 
 ```
-python3 scripts/extract.py FILE --out prose.txt
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/extract.py" FILE --out prose.txt
 ```
 
 A deck rarely holds enough continuous prose to test. When it does not, test the
@@ -51,8 +51,9 @@ length of the blank gives nothing away. A higher interval makes an easier test;
 six is the standard. Generate the sheet with the bundled script:
 
 ```
-python3 scripts/cloze.py DOCUMENT.md --start "the sentence to start from" \
-    --words 280 --every 6 --out sheet.md --key key.md
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/cloze.py" build DOCUMENT.md \
+    --start "the sentence to start from" --words 280 --every 6 \
+    --out sheet.md --key key.md
 ```
 
 ### 3. Run it

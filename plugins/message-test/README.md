@@ -15,19 +15,26 @@ and only the second one matters when a document has to carry a decision.
 | `reader-test` | Whether a fresh reader extracts the intended message, and what they believe that the document never said. | A model, isolated from your context | Nearly free |
 | `cloze-test` | Whether real readers can follow the text. Every sixth word removed and restored; 60 percent or more passes. | Humans only | Real people's time |
 
-The command `/message-test <file> [reader]` runs the first two in order and tells
-you whether the third is worth it.
+The command `/message-test:run <file> [reader] [source document]` runs the first
+two in order and tells you whether the third is worth it.
 
-## The two rules that matter most
+## The three rules that matter most
 
-**The reader must be fresh.** Anything that helped write the document will pass
-its own test. `reader-test` is only valid with a subagent that has no inherited
-context and only the file.
+**The reader must really be fresh, and a subagent often is not.** A subagent
+inherits the project's `CLAUDE.md` and memory files. If those explain the
+subject, the reader answers from them and passes a document that carries no
+message of its own. Run the reader in a separate session outside the project
+unless you have checked that the project's instructions say nothing about the
+subject.
 
-**A model must never take the cloze test.** Restoring masked words is the
-training objective of every large language model, so a model scores well on text
-no human can follow. Use it to build the sheet and score the returns, never to
-answer it.
+**The answer key must not come from the document under test.** A key skimmed
+off the artifact measures whether the artifact repeats its own headlines. It
+always does. Take the key from the source document or from the author, or say
+in the report that this run did not test drift.
+
+**A model must never take the cloze test.** A model restores a missing word from
+context far better than any person, so it scores well on text no human can
+follow. Use it to build the sheet and score the returns, never to answer one.
 
 ## Install
 
@@ -36,11 +43,17 @@ answer it.
 /plugin install message-test@message-test
 ```
 
-Then `/message-test deliverables/some-deck.pptx "a board member with 11 minutes"`.
+Then:
 
-A PPTX or DOCX is rendered to PDF first, so the reader sees the layout rather
-than a pile of extracted words. The cloze script needs plain prose, so
-`scripts/extract.py` pulls text out of Office files and PDFs for that one.
+```
+/message-test:run deliverables/some-deck.pptx "a board member with 11 minutes" \
+    governance/the-source-document.md
+```
+
+A PPTX, DOCX, ODP or ODT is rendered to PDF first, so the reader sees the layout
+rather than a pile of extracted words. The cloze script needs plain prose, so
+`${CLAUDE_PLUGIN_ROOT}/scripts/extract.py` pulls text out of Office files,
+OpenDocument files and PDFs for that one.
 
 ## Where the methods come from
 

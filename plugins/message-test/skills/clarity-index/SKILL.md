@@ -25,8 +25,8 @@ language; information design; state of the science; behavioural
 recommendations; numbers; and risk.
 
 The item wording below is my adaptation of those areas for general documents.
-It is not a verbatim copy of the CDC instrument. When a score has to stand up
-formally, use the authoritative score sheet at
+It is not a word for word copy of the CDC instrument. When a score has to
+stand up formally, use the authoritative score sheet at
 `https://www.cdc.gov/ccindex/pdf/full-index-score-sheet.pdf` instead, and say
 which one you used.
 
@@ -51,8 +51,15 @@ almost always disagreements about these three:
 ## The twenty items
 
 Score one point when the material meets the item **everywhere it applies**, and
-zero when any instance fails. Skip an area that genuinely does not apply, and
-scale the total: score achieved divided by items scored, times 100.
+zero when any instance fails. Skip an item only when the material has nothing
+the item could apply to: score
+the numbers items only where numbers appear, the risk items only where a risk is
+described. Everything under main message, language and information design always
+applies. Then scale: points awarded divided by items scored, times 100.
+
+Report which items you scored and which you skipped. Two runs that skip
+different items produce different scores from identical judgments, and the list
+is what makes that visible.
 
 **Score zero when you are unsure.** This matters more than any single item. A
 model scoring a document it is asked to help with drifts generous, and a
@@ -128,7 +135,10 @@ without hunting":
 ## Reporting
 
 Report the score, then the failures, worst first. For every failed item give
-the smallest change that would pass it, quoting the text you would change.
+the smallest change that would pass it, quoting the text you would change. For
+every awarded point, keep the quotation that earned it and include those
+quotations in the report; a score whose passes cannot be checked is an opinion
+with a number attached.
 Never report a score without the reader definition it was scored against.
 
 ```
@@ -150,4 +160,4 @@ Failed items
 - Do not score a document you wrote in this session without saying so. You will
   score your own intent rather than the text.
 - If the reader definition is missing and cannot be obtained, say the score is
-  provisional and state the reader you assumed.
+  not final and state the reader you assumed.
