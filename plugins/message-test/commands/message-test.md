@@ -8,6 +8,18 @@ Measure whether `$1` delivers its message. The reader, if given, is: $2
 Work in this order and stop at the first step that fails badly enough to make
 the later ones pointless.
 
+## 0. Prepare the artifact
+
+If `$1` is a PPTX or DOCX, render it to PDF first and use that, because layout
+carries part of the message and extracted text loses it:
+
+```
+soffice --headless --convert-to pdf "$1" --outdir <a scratch directory>
+```
+
+A PDF or Markdown file can be used as it is. Say in the report which form was
+read.
+
 ## 1. Establish the reader and the intended message
 
 If the reader was not given, ask for it in one question, or state the reader you

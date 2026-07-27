@@ -30,6 +30,21 @@ worthless rather than reassuring.
 
 ## Procedure
 
+### 0. Give the reader what a reader would see
+
+A deck is not its text. Slide order, what shares a slide, what is large and
+what is a footnote: all of it carries message, and extracting the words throws
+it away. So:
+
+- **PPTX, DOCX:** render to PDF first and give the reader the PDF.
+  `soffice --headless --convert-to pdf FILE --outdir DIR`
+- **PDF:** give it directly. The reader can read the pages, including layout.
+- **Markdown, plain text:** give the file.
+
+Never hand a subagent a summary, a quote, or your description of the document.
+The moment your words reach the reader, you are testing your summary rather
+than the artifact, and the test silently passes.
+
 ### 1. Write the answer key first
 
 Before opening the document, write what a reader must leave with. Three to five

@@ -130,9 +130,16 @@ def main() -> None:
     if args.every < 3:
         sys.exit("--every below 3 leaves too little context to restore anything")
 
+    if args.document.suffix.lower() not in (".md", ".markdown", ".txt"):
+        sys.exit("this reads Markdown or plain text. For a PPTX, DOCX or PDF, "
+                 "run scripts/extract.py first and pass the result here.")
+
     text = prose_only(args.document.read_text(encoding="utf-8"))
     picked = choose_passage(text, args.start, args.words)
     body, answers = gap(picked, args.every)
+    if len(answers) < 15:
+        sys.exit(f"only {len(answers)} blanks; too few to score meaningfully. "
+                 f"Raise --words or lower --every.")
 
     sheet = (
         f"# Reading exercise\n\n"

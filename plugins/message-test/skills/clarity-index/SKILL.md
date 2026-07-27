@@ -30,6 +30,13 @@ formally, use the authoritative score sheet at
 `https://www.cdc.gov/ccindex/pdf/full-index-score-sheet.pdf` instead, and say
 which one you used.
 
+The 90 threshold comes from the CDC instrument, which was built and validated
+for public health materials aimed at a general audience. It is a sensible
+default and it is not calibrated for board papers, technical specifications or
+legal text. Treat a score as a comparison against the same document last week,
+or against a sibling artifact, rather than as an absolute grade. Say so when
+reporting one.
+
 ## Before scoring, write these down
 
 The score is meaningless without them, and disagreements about a score are
@@ -46,6 +53,22 @@ almost always disagreements about these three:
 Score one point when the material meets the item **everywhere it applies**, and
 zero when any instance fails. Skip an area that genuinely does not apply, and
 scale the total: score achieved divided by items scored, times 100.
+
+**Score zero when you are unsure.** This matters more than any single item. A
+model scoring a document it is asked to help with drifts generous, and a
+generous scorer produces a number that moves between runs and reassures nobody.
+The tie-break rule is: if you are arguing yourself into the point, it is a zero.
+For every point you do award, you must be able to quote the text that earns it.
+
+Worked example, item 1, "there is a main message and it is identifiable
+without hunting":
+
+- **One point:** the first slide reads "Approve the Denmark pilot and fund a
+  team of four to six." You can quote it.
+- **Zero:** the first slide reads "Spectrum Command: governed AI automation."
+  That is a subject, not a message. A reader cannot tell what it claims.
+- **Zero:** the message exists but sits on slide 7. It is present, not
+  identifiable without hunting, and the item asks for both.
 
 ### Main message and call to action (4 items)
 

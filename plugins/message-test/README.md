@@ -38,6 +38,10 @@ answer it.
 
 Then `/message-test deliverables/some-deck.pptx "a board member with 11 minutes"`.
 
+A PPTX or DOCX is rendered to PDF first, so the reader sees the layout rather
+than a pile of extracted words. The cloze script needs plain prose, so
+`scripts/extract.py` pulls text out of Office files and PDFs for that one.
+
 ## Where the methods come from
 
 - **ISO 24495-1:2023**, the plain language standard, defines the target as a

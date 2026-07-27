@@ -30,6 +30,15 @@ the key, and interpreting the result.
 
 ### 1. Choose the passage
 
+If the document is a PPTX, DOCX or PDF, pull the prose out first:
+
+```
+python3 scripts/extract.py FILE --out prose.txt
+```
+
+A deck rarely holds enough continuous prose to test. When it does not, test the
+talk track or the source document instead, and say which one you tested.
+
 Take continuous prose of roughly 250 to 300 words from the part of the document
 that carries the message. Skip tables, headings, bullet lists and captions:
 gaps in fragments measure guessing, not comprehension. Leave the first and last
