@@ -1,0 +1,12 @@
+#!/bin/sh
+# Fast static checks only. The full gate runs at pre-push.
+set -eu
+
+cd "$(git rev-parse --show-toplevel)"
+
+if ! python3 -c "import yaml" 2>/dev/null; then
+  echo "pre-commit: PyYAML is missing — run: pip install pyyaml" >&2
+  exit 1
+fi
+
+python3 scripts/validate-plugin.py

@@ -39,7 +39,7 @@ follow. Use it to build the sheet and score the returns, never to answer one.
 ## Install
 
 ```
-/plugin marketplace add /path/to/message-test-plugin
+/plugin marketplace add cocodedk/message-test
 /plugin install message-test@message-test
 ```
 

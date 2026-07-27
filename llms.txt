@@ -1,0 +1,27 @@
+# message-test
+
+> A Claude Code plugin that measures whether a document actually delivers its message to its readers. Three instruments: a clarity index scored out of 100 against a 20-item checklist, a fresh-reader extraction test that catches drift between a document and the artifacts made from it, and a cloze test taken by real humans. Built on ISO 24495-1:2023, the CDC Clear Communication Index, and the cloze procedure.
+
+A readability score tells you how hard a text is to process. It does not tell you whether the reader took away what you meant. Those are different questions, and only the second matters when a document has to carry a decision.
+
+Install with `/plugin marketplace add cocodedk/message-test` then `/plugin install message-test@message-test`. Run with `/message-test:run <file> "<who the reader is>" "<source document>"`.
+
+Three rules govern the method: a language model must never take the cloze test, because it restores missing words from context far better than a person and so scores well on text no human can follow; the answer key must never come from the document under test, or it only measures whether the document repeats its own headlines; and the fresh reader must genuinely lack context, which a subagent inheriting project instructions does not.
+
+## Instruments
+
+- [clarity-index](https://github.com/cocodedk/message-test/blob/main/plugins/message-test/skills/clarity-index/SKILL.md): scores a document out of 100 against 20 items, 90 to pass, in about fifteen minutes; catches missing main message, missing stated action, unusable numbers, and risk stated without likelihood
+- [reader-test](https://github.com/cocodedk/message-test/blob/main/plugins/message-test/skills/reader-test/SKILL.md): gives the document to a fresh reader, asks what they took away, and scores it against an answer key written in advance; catches drift and unintended readings no readability score can see
+- [cloze-test](https://github.com/cocodedk/message-test/blob/main/plugins/message-test/skills/cloze-test/SKILL.md): deletes every sixth word for real human readers to restore; 60 percent or higher means the text is comprehensible for that audience
+- [run command](https://github.com/cocodedk/message-test/blob/main/plugins/message-test/commands/run.md): runs the first two in order and decides whether the third is worth real people's time
+
+## Reference
+
+- [README](https://github.com/cocodedk/message-test/blob/main/README.md): installation, usage, and what none of this proves
+- [CONTRIBUTING](https://github.com/cocodedk/message-test/blob/main/CONTRIBUTING.md): the rules the content must keep, and the YAML frontmatter trap that silently drops command metadata
+- [Website](https://cocodedk.github.io/message-test/): English and Persian
+
+## Optional
+
+- [extract.py](https://github.com/cocodedk/message-test/blob/main/plugins/message-test/scripts/extract.py): pulls prose from PPTX, DOCX, ODP, ODT, PDF, Markdown, text and HTML, preserving the paragraph boundaries the cloze builder depends on
+- [cloze.py](https://github.com/cocodedk/message-test/blob/main/plugins/message-test/scripts/cloze.py): builds the cloze sheet and answer key, and scores returned answers with exact and near matches separated for a human to judge

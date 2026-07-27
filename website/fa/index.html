@@ -1,0 +1,421 @@
+<!--
+  ============================================================================
+  کلیدواژه‌ها و نیت جست‌وجو — fa/index.html (فارسی)
+  ----------------------------------------------------------------------------
+  کلیدواژهٔ اصلی:      آزمون پیام
+  کلیدواژه‌های فرعی:   افزونهٔ Claude Code، شاخص شفافیت، آزمون خواننده،
+                        آزمون کلوز، شاخص ارتباط شفاف CDC،
+                        ISO 24495-1:2023، استاندارد زبان ساده،
+                        سنجش فهم سند، واگرایی سند از منبع،
+                        تفاوت خوانایی با فهم
+  دم‌بلند:              چطور بفهمیم سند پیامش را می‌رساند،
+                        نمره دادن به شفافیت سند از ۱۰۰،
+                        چرا مدل زبانی نباید آزمون کلوز بدهد،
+                        نوشتن کلید پاسخ پیش از آزمون خواننده،
+                        گرفتن واگرایی میان سند منبع و فایل ساخته‌شده از آن
+  نیت جست‌وجو:         اطلاعاتی و تراکنشی. نویسندهٔ فنی، مسئول ارتباطات،
+                        نویسندهٔ خط‌مشی یا مهندسی که دنبال شواهد است، نه
+                        حس خوب: سه ابزار با آستانه‌های منتشرشده را می‌بیند
+                        و افزونه را نصب می‌کند.
+  تبدیل اصلی:          بلوک دوخطی نصب (‎#install‎)
+  نسخه‌های دیگر:        en (‎/‎) · fa (این صفحه) · x-default (‎/‎)
+  ============================================================================
+-->
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>message-test — سند شما واقعاً چه چیزی را می‌رساند؟</title>
+<meta name="description" content="افزونه‌ای برای Claude Code که اندازه می‌گیرد سند شما پیامش را می‌رساند یا نه: شاخص شفافیت با نمره، آزمون خوانندهٔ ناآشنا برای گرفتن واگرایی، و آزمون کلوز.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="بابک بندپی">
+<link rel="canonical" href="https://cocodedk.github.io/message-test/fa/">
+
+<link rel="alternate" hreflang="en" href="https://cocodedk.github.io/message-test/">
+<link rel="alternate" hreflang="fa" href="https://cocodedk.github.io/message-test/fa/">
+<link rel="alternate" hreflang="x-default" href="https://cocodedk.github.io/message-test/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="message-test">
+<meta property="og:title" content="message-test — سند شما واقعاً چه چیزی را می‌رساند؟">
+<meta property="og:description" content="افزونه‌ای برای Claude Code که اندازه می‌گیرد سند شما پیامش را می‌رساند یا نه: شاخص شفافیت با نمره، آزمون خوانندهٔ ناآشنا برای گرفتن واگرایی، و آزمون کلوز.">
+<meta property="og:url" content="https://cocodedk.github.io/message-test/fa/">
+<meta property="og:image" content="https://cocodedk.github.io/message-test/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="نمایشگر یک دستگاه که شاخص شفافیت ۷۸ را در برابر حد قبولی ۹۰ نشان می‌دهد، کنار پلاک قرمزی با این عبارت: فقط انسان مجاز است.">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:locale:alternate" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="message-test — سند شما واقعاً چه چیزی را می‌رساند؟">
+<meta name="twitter:description" content="افزونه‌ای برای Claude Code که اندازه می‌گیرد سند شما پیامش را می‌رساند یا نه: شاخص شفافیت با نمره، آزمون خوانندهٔ ناآشنا برای گرفتن واگرایی، و آزمون کلوز.">
+<meta name="twitter:image" content="https://cocodedk.github.io/message-test/og.png">
+<meta name="twitter:image:alt" content="نمایشگر یک دستگاه که شاخص شفافیت ۷۸ را در برابر حد قبولی ۹۰ نشان می‌دهد، کنار پلاک قرمزی با این عبارت: فقط انسان مجاز است.">
+
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="mask-icon" href="../favicon.svg" color="#0c1214">
+<meta name="theme-color" content="#d7dcdd">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Public+Sans:wght@400;600&family=Saira:wght@500;600&family=Vazirmatn:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "message-test — آزمون پیام",
+  "description": "افزونه‌ای برای Claude Code که اندازه می‌گیرد سند شما پیامش را می‌رساند یا نه: شاخص شفافیت با نمره، آزمون خوانندهٔ ناآشنا برای گرفتن واگرایی، و آزمون کلوز.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Linux, macOS, Windows",
+  "inLanguage": "fa",
+  "url": "https://cocodedk.github.io/message-test/fa/",
+  "codeRepository": "https://github.com/cocodedk/message-test",
+  "downloadUrl": "https://github.com/cocodedk/message-test",
+  "license": "https://www.apache.org/licenses/LICENSE-2.0",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "بابک بندپی",
+    "url": "https://cocode.dk",
+    "sameAs": [
+      "https://linkedin.com/in/babakbandpey",
+      "https://github.com/cocodedk"
+    ]
+  }
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main">رفتن به متن</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <rect width="32" height="32" rx="5" fill="#0c1214"/>
+        <rect x="5" y="13.5" width="22" height="6" fill="#263236"/>
+        <rect x="5" y="13.5" width="13" height="6" fill="#ffa42b"/>
+        <rect x="21.5" y="8.5" width="2.5" height="16" fill="#e8ebeb"/>
+      </svg>
+      message-test
+    </a>
+
+    <a href="../" class="lang-switch" lang="en" dir="ltr" hreflang="en">English</a>
+
+    <nav class="nav" aria-label="بخش‌های این صفحه">
+      <ul>
+        <li><a href="#instruments">ابزارها</a></li>
+        <li><a href="#interlock">قفل ایمنی</a></li>
+        <li><a href="#valid">اعتبار</a></li>
+        <li><a href="#run">یک اجرا</a></li>
+        <li><a href="#install">نصب</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+
+    <section class="hero" id="top">
+      <p class="eyebrow">افزونهٔ Claude Code &middot; سه ابزار سنجش</p>
+      <h1>آزمون پیام: خواننده در عمل چه چیزی برداشت می‌کند؟</h1>
+      <p class="lede">نمرهٔ خوانایی می‌گوید خواندن یک متن چقدر سخت است. اینکه خواننده
+        سرِ آخر همان چیزی را برداشته که منظور شما بوده، حرف دیگری است. وقتی قرار است
+        سندی پای یک تصمیم بایستد، فقط همین دومی مهم است.</p>
+
+      <div class="readout" aria-label="نمونهٔ گزارش یک اجرا">
+        <p class="readout__bar">
+          <span>اجرای ۲۳ تیر ۱۴۰۵، ساعت ۱۴:۰۲</span>
+          <span class="lit">board-deck.pptx، تبدیل‌شده به pdf</span>
+          <span>خواننده: عضو هیئت‌مدیره، ۱۱ دقیقه وقت، سند اصلی را نخوانده</span>
+        </p>
+
+        <div class="row">
+          <div class="row__top">
+            <span class="row__label">شاخص شفافیت</span>
+            <span class="row__verdict is-below">زیر حد قبولی</span>
+          </div>
+          <p class="row__val">۷۸<small> از ۱۰۰</small></p>
+          <div class="scale" role="img" aria-label="نمرهٔ ۷۸ از ۱۰۰. حد قبولی ۹۰ است.">
+            <div class="scale__track">
+              <div class="scale__fill" style="--v:78%"></div>
+              <div class="scale__thr" style="--t:90%"></div>
+            </div>
+            <p class="scale__marks"><span>۰</span><span>حد قبولی ۹۰</span><span>۱۰۰</span></p>
+          </div>
+          <p class="row__sub">۱۸ گویه نمره خورد، ۲ گویه چون موردی نداشت کنار گذاشته شد.</p>
+        </div>
+
+        <div class="row">
+          <div class="row__top">
+            <span class="row__label">آزمون خواننده</span>
+            <span class="row__verdict is-below">یک مورد غلط</span>
+          </div>
+          <p class="row__val">۳ رسیده</p>
+          <p class="row__sub">۱ نرسیده، ۱ غلط، از کلید پنج‌بندی که از سند منبع درآمده بود.</p>
+          <p class="row__gloss">غلط: تصور کرده پایلوت هر پنج کشور را می‌گیرد.<br>
+            ساخته: «هر ایرادی خودکار رفع می‌شود.» چنین چیزی در سند نیست؛ اسلاید ۲ با
+            نگفتنِ محدودیت همین را القا می‌کند.</p>
+        </div>
+
+        <div class="row">
+          <div class="row__top">
+            <span class="row__label">آزمون کلوز</span>
+            <span class="row__verdict is-skipped">اجرا نشد</span>
+          </div>
+          <p class="row__gloss">تا وقتی شاخص شفافیت قبول نشود کنار می‌ماند. خوانندهٔ
+            واقعی گران‌ترین ابزار این مجموعه است و این پیش‌نویس وقتشان را هدر می‌دهد.</p>
+        </div>
+      </div>
+
+      <p class="note">گزارش یک اجرا، تقریباً همان‌طور که برمی‌گردد. نمره کم‌اهمیت‌ترین
+        سطر آن است.</p>
+
+      <div class="actions">
+        <a class="btn btn--solid" href="#install">نصب افزونه</a>
+        <a class="btn btn--ghost" href="https://github.com/cocodedk/message-test" target="_blank" rel="noreferrer">کد روی گیت‌هاب</a>
+      </div>
+    </section>
+
+    <section class="module" id="instruments" aria-labelledby="instruments-h">
+      <p class="module__legend">ابزارها</p>
+      <h2 id="instruments-h">سه آزمون، به ترتیب هزینه‌ای که برایتان دارند</h2>
+      <p>هر کدام سؤالی باریک‌تر از قبلی می‌پرسد و گران‌تر تمام می‌شود. از بالا شروع
+        کنید و هر جا جواب گفت برو بازنویسی کن، همان‌جا بایستید.</p>
+
+      <ul class="instruments">
+        <li class="instr">
+          <h3>شاخص شفافیت</h3>
+          <p class="instr__cost">یک مدل &middot; حدود ۱۵ دقیقه &middot; رایگان</p>
+          <p>بیست گویه، هر کدام یک نمره، تبدیل‌شده به ۱۰۰. پیام اصلی هست و بدون گشتن
+            پیدا می‌شود؟ گفته شده خواننده باید چه کار کند؟ عددها به درد استفاده
+            می‌خورند؟ کنار هر ریسک، احتمالش هم آمده؟</p>
+          <div class="instr__gauge">
+            <p>حد قبولی ۹۰.</p>
+            <div class="scale scale--light" role="img" aria-label="شاخص شفافیت بازهٔ ۹۰ تا ۱۰۰ را قبول می‌کند.">
+              <div class="scale__track">
+                <div class="scale__zone" style="--t:90%"></div>
+                <div class="scale__thr" style="--t:90%"></div>
+              </div>
+              <p class="scale__marks"><span>۰</span><span>بازهٔ قبولی</span><span>۱۰۰</span></p>
+            </div>
+          </div>
+          <p>هر جا شک دارید صفر بدهید. مدلی که سندِ خودش را نمره می‌دهد دست‌ودل‌باز
+            می‌شود، پس برای هر نمره‌ای که می‌دهید باید همان جمله‌ای را بیاورید که آن
+            نمره را گرفته است.</p>
+          <p class="instr__limit">قبولی یعنی موانع شناخته‌شده سرِ راه نیستند. یعنی کسی
+            چیزی فهمیده باشد، نه.</p>
+        </li>
+
+        <li class="instr">
+          <h3>آزمون خواننده</h3>
+          <p class="instr__cost">یک مدل، در انزوا &middot; چند دقیقه &middot; تقریباً رایگان</p>
+          <p>اول بنویسید خواننده باید با چه چیزی از این سند بیرون بیاید. بعد سند را، و
+            هیچ چیز دیگری را، به کسی بدهید که تا حالا ندیده‌اش. جوابش را مقابل کلید
+            بگذارید: رسیده، نرسیده، غلط.</p>
+          <div class="instr__gauge">
+            <p>حد قبولی ندارد. غلط از نرسیده بدتر است.</p>
+            <p class="note">نرسیده یعنی جای خالی. غلط یعنی خرابی، چون سند به‌جای اینکه
+              فقط کم بیاورد، خواننده را به بیراهه برده.</p>
+          </div>
+          <p>بعد چیزی که هیچ سنجه‌ای درنمی‌آورد: <strong>ساخته‌ها</strong>، باورهایی که
+            خواننده با آن‌ها بیرون آمده و سند هیچ‌وقت نگفته بوده. هر کدام آدرس مشخصی
+            دارد و اصلاح همان‌جا انجام می‌شود.</p>
+          <p class="instr__limit">این آزمون برداشت را می‌سنجد، نه اقناع را. هنوز کسی با
+            چیزی موافقت نکرده.</p>
+        </li>
+
+        <li class="instr">
+          <h3>آزمون کلوز</h3>
+          <p class="instr__cost">چهار تا شش خوانندهٔ واقعی &middot; یک بعدازظهرشان</p>
+          <p>۲۵۰ تا ۳۰۰ کلمه نثر پیوسته از همان بخشی که پیام را حمل می‌کند بردارید. هر
+            کلمهٔ ششم را حذف کنید. خواننده‌ها تنها، بدون متن اصلی و بدون ساعت، جاهای
+            خالی را پر می‌کنند.</p>
+          <div class="instr__gauge">
+            <p>حد قبولی: ۶۰ درصد بازسازی.</p>
+            <div class="scale scale--light" role="img" aria-label="آزمون کلوز بازهٔ ۶۰ تا ۱۰۰ درصد بازسازی را قبول می‌کند.">
+              <div class="scale__track">
+                <div class="scale__zone" style="--t:60%"></div>
+                <div class="scale__thr" style="--t:60%"></div>
+              </div>
+              <p class="scale__marks"><span>۰٪</span><span>بازهٔ قبولی</span><span>۱۰۰٪</span></p>
+            </div>
+          </div>
+          <p>بین ۴۰ تا ۶۰ یعنی متن به‌تنهایی نمی‌ایستد و باید کنارش توضیح بدهید. زیر ۴۰
+            یعنی این مخاطب از پس متن برنمی‌آید؛ بازنویسی لازم است، نه ویرایش. دامنه را
+            هم گزارش کنید: یک خوانندهٔ قوی میانگین را از ۶۰ رد می‌کند در حالی که بقیهٔ
+            اتاق گم شده‌اند.</p>
+          <p class="instr__limit">نمره مال همان قطعه و همان خواننده‌هاست. به بقیهٔ سند
+            تعمیم پیدا نمی‌کند.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="interlock" id="interlock" aria-labelledby="interlock-h">
+      <p class="interlock__plate">
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+          <path d="M8 1 15 14H1Z" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/>
+          <rect x="7.2" y="5.4" width="1.6" height="4.4" fill="#fff"/>
+          <rect x="7.2" y="10.6" width="1.6" height="1.6" fill="#fff"/>
+        </svg>
+        قفل ایمنی &mdash; چه کسی مجاز است
+      </p>
+      <div class="interlock__body">
+        <h2 id="interlock-h">هیچ مدل زبانی نباید آزمون کلوز را بدهد</h2>
+        <p>مدل، کلمهٔ حذف‌شده را از روی بافت جمله خیلی بهتر از هر آدمی بازسازی می‌کند.
+          متنی جلویش بگذارید که هیچ‌کس در اتاق سر در نمی‌آورد؛ باز هم جاهای خالی را پر
+          می‌کند و نمرهٔ خوبی می‌گیرد. پس نتیجهٔ کلوزِ یک مدل شاهد ضعیف نیست.
+          <strong>اصلاً شاهد نیست.</strong></p>
+        <p>اگر از این افزونه بخواهید کلوز را خودکار اجرا کند، قبول نمی‌کند، دلیلش را
+          می‌گوید و شما را به آزمون خواننده می‌فرستد که با یک مدل تازه درست کار می‌کند.
+          همین نه گفتن است که باعث می‌شود عددِ کلوز، وقتی بالاخره درمی‌آید، ارزشی داشته
+          باشد.</p>
+
+        <ul class="interlock__ledger">
+          <li><b>مدل</b> <span>برگه و کلید پاسخ را می‌سازد</span></li>
+          <li><b>مدل</b> <span>برگه‌های برگشتی را تصحیح می‌کند و خوشه‌های خطا را می‌خواند</span></li>
+          <li><span class="no">مدل</span> <span class="no">هیچ جای خالی‌ای را پر نمی‌کند</span></li>
+          <li><b>انسان</b> <span>چهار تا شش نفر، از همان مخاطب واقعی</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="module" id="valid" aria-labelledby="valid-h">
+      <p class="module__legend">اعتبار</p>
+      <h2 id="valid-h">دو راهی که آزمون خواننده بی‌سروصدا همه‌چیز را قبول می‌کند</h2>
+      <p>هر دو گزارشی تمیز تحویل می‌دهند و هیچ‌کدام در عدد پیدا نیست. پس هر اجرا باید
+        بگوید سرِ این دو قاعده کجا ایستاده است.</p>
+
+      <ul class="rules">
+        <li>
+          <h3>خواننده در واقع تازه‌وارد نبوده</h3>
+          <p>زیرعامل، فایل <code>CLAUDE.md</code> و حافظهٔ پروژه را با خودش می‌برد. اگر
+            آن‌ها موضوع را توضیح داده باشند، خواننده نیمی از دستورها جواب می‌دهد و نیمی
+            از سند، و شما نمی‌فهمید کدام نیمه کدام است. چنین خواننده‌ای سندی را که هیچ
+            پیام مستقلی ندارد هم تأیید می‌کند. خواننده را در نشستی جدا و بیرون از پروژه
+            اجرا کنید و آخرش از او بپرسید از قبل چه می‌دانست. هر چه در آن فهرست بیاید
+            نتیجه را آلوده می‌کند.</p>
+        </li>
+        <li>
+          <h3>کلید پاسخ از روی همان سندِ زیر آزمون نوشته شده</h3>
+          <p>کلیدی که از روی خود سند برداشته شده فقط می‌پرسد آیا سند تیترهای خودش را
+            تکرار می‌کند. همیشه می‌کند. چنین آزمونی شکست نمی‌خورد و مهم‌تر اینکه
+            واگرایی میان سند منبع و فایلی که از رویش ساخته شده را نمی‌گیرد. کلید را پیش
+            از آزمون از منبع بگیرید یا از نویسنده، و کنار خود سند در کنترل نسخه نگهش
+            دارید: کلیدی که بعد از یک نتیجهٔ بد عوض شود، آزمون نیست.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="module" id="run" aria-labelledby="run-h">
+      <p class="module__legend">یک اجرا</p>
+      <h2 id="run-h">یک اجرا چطور پیش می‌رود</h2>
+      <p>یک دستور، چهار قدم، و توقف سرِ اولین قدمی که آن‌قدر بد باشد که ادامه را
+        بی‌معنی کند.</p>
+
+      <ol class="steps">
+        <li>
+          <span class="step__n" aria-hidden="true">۱</span>
+          <h3>آماده کردن فایل</h3>
+          <p>فایل PPTX، DOCX، ODP یا ODT اول به PDF تبدیل می‌شود. ترتیب اسلایدها، اینکه
+            چه چیزی کنار چه چیزی نشسته و چه چیزی به پانویس تبعید شده، همه بخشی از پیام
+            است و بیرون کشیدن متن آن را دور می‌ریزد.</p>
+        </li>
+        <li>
+          <span class="step__n" aria-hidden="true">۲</span>
+          <h3>خواننده را مشخص کنید، کلید را بنویسید</h3>
+          <p>نه «مدیران ارشد»، بلکه «عضو هیئت‌مدیره‌ای که سند اصلی را نخوانده و یازده
+            دقیقه وقت دارد». بعد سه تا پنج چیزی که باید با آن‌ها بیرون بیاید، هر کدام
+            طوری که بشود درست یا غلطش را علامت زد. اگر این فهرست را نمی‌توانید بنویسید،
+            سند هنوز پیامی ندارد.</p>
+        </li>
+        <li>
+          <span class="step__n" aria-hidden="true">۳</span>
+          <h3>به شاخص شفافیت نمره بدهید</h3>
+          <p>ایرادها از بدترین به پایین، هر کدام با کوچک‌ترین تغییری که قبولش می‌کند.
+            زیر ۷۰ کار همین‌جا تمام می‌شود: مشکل ساختاری صدای هر خواننده‌ای را خفه
+            می‌کند و درست کردنش از دو بار اندازه‌گیری ارزان‌تر است.</p>
+        </li>
+        <li>
+          <span class="step__n" aria-hidden="true">۴</span>
+          <h3>خواننده را بفرستید، بعد دربارهٔ کلوز تصمیم بگیرید</h3>
+          <p>آنچه برمی‌گردد را مقابل کلید قدم ۲ بگذارید. آزمون کلوز فقط وقتی به هزینه‌اش
+            می‌ارزد که مخاطب امکان پرسیدن ندارد و بدفهمی گران تمام می‌شود.</p>
+        </li>
+      </ol>
+
+      <p class="note" style="margin-block-start:1.2rem">ترتیب آرگومان‌ها: فایل، خوانندهٔ
+        مورد نظر، و سند منبعی که فایل از رویش ساخته شده.</p>
+      <pre class="code"><code><b>/message-test:run</b> board-deck.pptx \
+    "a board member with 11 minutes" \
+    governance/the-source-document.md</code></pre>
+    </section>
+
+    <section class="module" id="install" aria-labelledby="install-h">
+      <p class="module__legend">نصب</p>
+      <h2 id="install-h">نصب</h2>
+      <p>دو خط در Claude Code. افزونه سه مهارت و یک دستور می‌آورد.</p>
+
+      <pre class="code"><code><b>/plugin marketplace add cocodedk/message-test</b>
+<b>/plugin install message-test@message-test</b></code></pre>
+
+      <p class="note" style="margin-block-start:1rem">مجوز Apache-2.0. سازندهٔ برگهٔ کلوز
+        و استخراج‌کنندهٔ متن هر دو پایتون سادهٔ بدون وابستگی‌اند.</p>
+    </section>
+
+    <section class="module" id="sources" aria-labelledby="sources-h">
+      <p class="module__legend">خاستگاه</p>
+      <h2 id="sources-h">این ابزارها از کجا آمده‌اند</h2>
+      <p>هیچ‌کدام اینجا اختراع نشده. دوتا از سه‌تا ابزار منتشرشده با آستانهٔ منتشرشده‌اند
+        و همین تنها دلیلی است که می‌شود عددها را با چیزی مقایسه کرد.</p>
+
+      <ul class="refs">
+        <li>
+          <span class="refs__src">ISO 24495-1:2023</span>
+          <p>استاندارد زبان ساده. هدف را با نتیجهٔ خواننده تعریف می‌کند: خواننده آنچه را
+            لازم دارد بگیرد، پیدا کند، بفهمد و به کار ببرد. و صراحتاً فرمول‌های خوانایی
+            را به عنوان معیار موفقیت رد می‌کند.</p>
+          <p class="refs__link"><a href="https://www.iso.org/standard/78907.html" target="_blank" rel="noreferrer">iso.org &larr;</a></p>
+        </li>
+        <li>
+          <span class="refs__src">شاخص ارتباط شفاف CDC</span>
+          <p>بیست گویهٔ نمره‌دار از ۱۰۰، حد قبولی ۹۰، حدود پانزده دقیقه. مهارت
+            <code>clarity-index</code> هفت حوزهٔ منتشرشدهٔ آن را برای سندهای عمومی
+            بازنویسی کرده. اگر نمره باید رسماً جایی بایستد، از خود برگهٔ نمرهٔ CDC
+            استفاده کنید و بگویید کدام را به کار برده‌اید.</p>
+          <p class="refs__link"><a href="https://www.cdc.gov/ccindex/pdf/full-index-score-sheet.pdf" target="_blank" rel="noreferrer">برگهٔ نمره، PDF &larr;</a></p>
+        </li>
+        <li>
+          <span class="refs__src">روش کلوز &middot; تیلور ۱۹۵۳</span>
+          <p>هنوز مبنایی است که چند فرمول خوانایی روی آن واسنجی شده‌اند. آستانهٔ ۶۰ درصد
+            و فاصلهٔ هر کلمهٔ ششم، همان روشی است که گروه نیلسن نورمن شرح می‌دهد.</p>
+          <p class="refs__link"><a href="https://www.nngroup.com/articles/cloze-test-reading-comprehension/" target="_blank" rel="noreferrer">nngroup.com &larr;</a></p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="caveat" aria-labelledby="caveat-h">
+      <h2 id="caveat-h">این‌ها چه چیزی را ثابت نمی‌کنند</h2>
+      <p>اینکه پیام درست است. اینکه مخاطب قبولش می‌کند. اینکه فلان‌کس بر اساسش کاری
+        می‌کند.</p>
+      <p>کاری که می‌کنند گرفتن سندی است که چیزی غیر از منظور شما می‌گوید، و این همان
+        خرابی‌ای است که از همه دیرتر لو می‌رود.</p>
+    </section>
+
+  </div>
+</main>
+
+<footer><p>Apache-2.0 &nbsp;|&nbsp; © ۱۴۰۵ <a href="https://cocode.dk" target="_blank" rel="noreferrer">Cocode</a> &nbsp;|&nbsp; ساخته شده توسط <a href="https://linkedin.com/in/babakbandpey" target="_blank" rel="noreferrer">بابک بندپی</a></p></footer>
+
+</body>
+</html>

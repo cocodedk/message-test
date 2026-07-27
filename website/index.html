@@ -1,0 +1,424 @@
+<!--
+  ============================================================================
+  KEYWORDS & SEARCH INTENT — index.html (English)
+  ----------------------------------------------------------------------------
+  Primary keyword:      message test
+  Secondary keywords:   Claude Code plugin, clarity index, reader test,
+                        cloze test, CDC Clear Communication Index,
+                        ISO 24495-1:2023, plain language standard,
+                        document comprehension testing, message drift,
+                        readability vs comprehension
+  Long-tail:            how to test whether a document delivers its message,
+                        score a document out of 100 for clarity,
+                        why a language model must not take a cloze test,
+                        answer key written before the reader test,
+                        catch drift between a source document and a deck
+  Search intent:        informational + transactional. A technical writer,
+                        comms lead, policy author or engineer arrives asking
+                        how you prove a document was understood, finds three
+                        named instruments with published thresholds, and
+                        installs the plugin.
+  Primary conversion:   the two-line install block (#install)
+  Alternates:           en (this page) · fa (/fa/) · x-default (this page)
+  ============================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>message-test: does your document deliver its message?</title>
+<meta name="description" content="A Claude Code plugin that measures whether a document delivers its message: a scored clarity index, a fresh-reader test that catches drift, and a cloze test.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="Babak Bandpey">
+<link rel="canonical" href="https://cocodedk.github.io/message-test/">
+
+<link rel="alternate" hreflang="en" href="https://cocodedk.github.io/message-test/">
+<link rel="alternate" hreflang="fa" href="https://cocodedk.github.io/message-test/fa/">
+<link rel="alternate" hreflang="x-default" href="https://cocodedk.github.io/message-test/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="message-test">
+<meta property="og:title" content="message-test: does your document deliver its message?">
+<meta property="og:description" content="A Claude Code plugin that measures whether a document delivers its message: a scored clarity index, a fresh-reader test that catches drift, and a cloze test.">
+<meta property="og:url" content="https://cocodedk.github.io/message-test/">
+<meta property="og:image" content="https://cocodedk.github.io/message-test/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="An instrument readout showing a clarity index of 78 against a pass mark of 90, beside a red plate reading: eligible subjects, humans only.">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="message-test: does your document deliver its message?">
+<meta name="twitter:description" content="A Claude Code plugin that measures whether a document delivers its message: a scored clarity index, a fresh-reader test that catches drift, and a cloze test.">
+<meta name="twitter:image" content="https://cocodedk.github.io/message-test/og.png">
+<meta name="twitter:image:alt" content="An instrument readout showing a clarity index of 78 against a pass mark of 90, beside a red plate reading: eligible subjects, humans only.">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="mask-icon" href="favicon.svg" color="#0c1214">
+<meta name="theme-color" content="#d7dcdd">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Public+Sans:wght@400;600&family=Saira:wght@500;600&family=Vazirmatn:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "message-test",
+  "description": "A Claude Code plugin that measures whether a document delivers its message: a scored clarity index, a fresh-reader test that catches drift, and a cloze test.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Linux, macOS, Windows",
+  "inLanguage": "en",
+  "url": "https://cocodedk.github.io/message-test/",
+  "codeRepository": "https://github.com/cocodedk/message-test",
+  "downloadUrl": "https://github.com/cocodedk/message-test",
+  "license": "https://www.apache.org/licenses/LICENSE-2.0",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Babak Bandpey",
+    "url": "https://cocode.dk",
+    "sameAs": [
+      "https://linkedin.com/in/babakbandpey",
+      "https://github.com/cocodedk"
+    ]
+  }
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <rect width="32" height="32" rx="5" fill="#0c1214"/>
+        <rect x="5" y="13.5" width="22" height="6" fill="#263236"/>
+        <rect x="5" y="13.5" width="13" height="6" fill="#ffa42b"/>
+        <rect x="21.5" y="8.5" width="2.5" height="16" fill="#e8ebeb"/>
+      </svg>
+      message-test
+    </a>
+
+    <a href="fa/" class="lang-switch" lang="fa" dir="rtl" hreflang="fa">فارسی</a>
+
+    <nav class="nav" aria-label="Sections of this page">
+      <ul>
+        <li><a href="#instruments">Instruments</a></li>
+        <li><a href="#interlock">Interlock</a></li>
+        <li><a href="#valid">Validity</a></li>
+        <li><a href="#run">A run</a></li>
+        <li><a href="#install">Install</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+
+    <section class="hero" id="top">
+      <p class="eyebrow">Claude Code plugin &middot; three instruments</p>
+      <h1>Message test: measure what the reader actually took away</h1>
+      <p class="lede">A readability score tells you how hard a text is to process. It
+        tells you nothing about whether the reader left with the point you meant to
+        make. Those are different questions, and only the second one matters when a
+        document has to carry a decision.</p>
+
+      <div class="readout" aria-label="Sample run report">
+        <p class="readout__bar">
+          <span>Run 2026-07-14 14:02</span>
+          <span class="lit">board-deck.pptx &rarr; pdf</span>
+          <span>Reader: a board member, 11 minutes, has not read the source</span>
+        </p>
+
+        <div class="row">
+          <div class="row__top">
+            <span class="row__label">Clarity index</span>
+            <span class="row__verdict is-below">Below the mark</span>
+          </div>
+          <p class="row__val">78<small> / 100</small></p>
+          <div class="scale" role="img" aria-label="Scored 78 out of 100. The pass mark is 90.">
+            <div class="scale__track">
+              <div class="scale__fill" style="--v:78%"></div>
+              <div class="scale__thr" style="--t:90%"></div>
+            </div>
+            <p class="scale__marks"><span>0</span><span>pass mark 90</span><span>100</span></p>
+          </div>
+          <p class="row__sub">18 items scored, 2 skipped as inapplicable.</p>
+        </div>
+
+        <div class="row">
+          <div class="row__top">
+            <span class="row__label">Reader test</span>
+            <span class="row__verdict is-below">One wrong</span>
+          </div>
+          <p class="row__val">3 landed</p>
+          <p class="row__sub">1 missing, 1 wrong, out of a 5-point key taken from the source.</p>
+          <p class="row__gloss">Wrong: believed the pilot covers all five countries.<br>
+            Invention: &ldquo;Every finding gets fixed automatically.&rdquo; Never stated.
+            Slide 2 implies it by showing no constraint.</p>
+        </div>
+
+        <div class="row">
+          <div class="row__top">
+            <span class="row__label">Cloze test</span>
+            <span class="row__verdict is-skipped">Not run</span>
+          </div>
+          <p class="row__gloss">Held back until the clarity index passes. Real readers are
+            the expensive instrument, and this draft would waste them.</p>
+        </div>
+      </div>
+
+      <p class="note">A run report, roughly as it comes back. The score is the least
+        interesting line in it.</p>
+
+      <div class="actions">
+        <a class="btn btn--solid" href="#install">Install the plugin</a>
+        <a class="btn btn--ghost" href="https://github.com/cocodedk/message-test" target="_blank" rel="noreferrer">Source on GitHub</a>
+      </div>
+    </section>
+
+    <section class="module" id="instruments" aria-labelledby="instruments-h">
+      <p class="module__legend">Instruments</p>
+      <h2 id="instruments-h">Three tests, in order of what they cost you</h2>
+      <p>Each one answers a narrower question than the last and costs more to run. Start
+        at the top. Stop as soon as an answer tells you to go and rewrite something.</p>
+
+      <ul class="instruments">
+        <li class="instr">
+          <h3>Clarity index</h3>
+          <p class="instr__cost">A model &middot; about 15 minutes &middot; free</p>
+          <p>Twenty items, one point each, scaled to 100. Is there a main message, and
+            can you find it without hunting? Is there a stated action? Can the numbers
+            be used? Does the risk come with a chance of happening?</p>
+          <div class="instr__gauge">
+            <p>Pass at 90.</p>
+            <div class="scale scale--light" role="img" aria-label="The clarity index accepts 90 to 100 out of 100.">
+              <div class="scale__track">
+                <div class="scale__zone" style="--t:90%"></div>
+                <div class="scale__thr" style="--t:90%"></div>
+              </div>
+              <p class="scale__marks"><span>0</span><span>accepted band</span><span>100</span></p>
+            </div>
+          </div>
+          <p>Score zero whenever you are unsure. A model scoring a document it helped
+            write drifts generous, so every point awarded has to arrive with the
+            sentence that earned it.</p>
+          <p class="instr__limit">A pass means the known blockers are absent. It is not
+            evidence that anyone understood anything.</p>
+        </li>
+
+        <li class="instr">
+          <h3>Reader test</h3>
+          <p class="instr__cost">A model, kept isolated &middot; minutes &middot; nearly free</p>
+          <p>Write down what a reader has to leave with. Hand the document, and nothing
+            else, to a reader who has never seen it. Compare. Each point comes back
+            landed, missing, or wrong.</p>
+          <div class="instr__gauge">
+            <p>No threshold. Wrong answers outrank missing ones.</p>
+            <p class="note">A missing point is a gap. A wrong point is damage, because
+              the document misled rather than merely failed.</p>
+          </div>
+          <p>Then the part no metric produces: <strong>inventions</strong>, the things
+            the reader came away believing that the document never said. Every one has
+            a location, and that is where the fix goes.</p>
+          <p class="instr__limit">This measures extraction, not persuasion. Nobody has
+            agreed to anything yet.</p>
+        </li>
+
+        <li class="instr">
+          <h3>Cloze test</h3>
+          <p class="instr__cost">Four to six real readers &middot; their afternoon</p>
+          <p>Take 250 to 300 words of continuous prose from the part that carries the
+            message. Delete every sixth word. Readers restore what they can, alone,
+            without the original, with no clock running.</p>
+          <div class="instr__gauge">
+            <p>Pass at 60 percent restored.</p>
+            <div class="scale scale--light" role="img" aria-label="The cloze test accepts 60 to 100 percent restored.">
+              <div class="scale__track">
+                <div class="scale__zone" style="--t:60%"></div>
+                <div class="scale__thr" style="--t:60%"></div>
+              </div>
+              <p class="scale__marks"><span>0%</span><span>accepted band</span><span>100%</span></p>
+            </div>
+          </div>
+          <p>Between 40 and 60 the text needs a briefing alongside it. Below 40 the
+            audience cannot follow it unaided, so rewrite rather than tidy. Report the
+            range too: one strong reader drags an average past 60 while the rest of the
+            room is lost.</p>
+          <p class="instr__limit">The score belongs to that passage and those readers.
+            It does not travel to the rest of the document.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="interlock" id="interlock" aria-labelledby="interlock-h">
+      <p class="interlock__plate">
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+          <path d="M8 1 15 14H1Z" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/>
+          <rect x="7.2" y="5.4" width="1.6" height="4.4" fill="#fff"/>
+          <rect x="7.2" y="10.6" width="1.6" height="1.6" fill="#fff"/>
+        </svg>
+        Interlock &mdash; eligible subjects
+      </p>
+      <div class="interlock__body">
+        <h2 id="interlock-h">A language model must never take the cloze test</h2>
+        <p>A model restores a missing word from its surroundings far better than any
+          person does. Hand it a passage nobody in the room can follow and it will still
+          fill the gaps and score well. So a model&rsquo;s cloze result is not weak
+          evidence. <strong>It is no evidence.</strong></p>
+        <p>Ask this plugin for an automated cloze run and it declines, says why, and
+          points you at the reader test, which does work with a fresh model. That refusal
+          is the whole reason the number means anything when it does come back.</p>
+
+        <ul class="interlock__ledger">
+          <li><b>Model</b> <span>Builds the sheet and the answer key</span></li>
+          <li><b>Model</b> <span>Marks the returned sheets, reads the failure clusters</span></li>
+          <li><span class="no">Model</span> <span class="no">Never answers a blank</span></li>
+          <li><b>Human</b> <span>Four to six of them, from the real audience</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="module" id="valid" aria-labelledby="valid-h">
+      <p class="module__legend">Validity</p>
+      <h2 id="valid-h">Two ways a reader test quietly passes everything</h2>
+      <p>Both failures produce a clean-looking report. Neither shows up in the number,
+        so the run has to state which side of each rule it landed on.</p>
+
+      <ul class="rules">
+        <li>
+          <h3>The reader was not actually fresh</h3>
+          <p>A subagent inherits the project&rsquo;s <code>CLAUDE.md</code> and memory
+            files. If those explain the subject, the reader answers half from the
+            instructions and half from the document, and you cannot tell which half is
+            which. It will wave through a document that carries no message of its own.
+            Run the reader in a separate session outside the project, and make it say at
+            the end what it already knew. Anything on that list contaminates the result.</p>
+        </li>
+        <li>
+          <h3>The answer key came from the document under test</h3>
+          <p>A key skimmed off the artifact asks whether the artifact repeats its own
+            headlines. It always does, so that test cannot fail, and it cannot catch
+            drift between a source document and the deck built from it. Take the key from
+            the source, or from the author, before the test. Keep it in version control
+            beside the artifact: a key edited after a bad result is not a test.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="module" id="run" aria-labelledby="run-h">
+      <p class="module__legend">One run</p>
+      <h2 id="run-h">How a run goes</h2>
+      <p>One command works through four steps and stops at the first one that fails badly
+        enough to make the rest pointless.</p>
+
+      <ol class="steps">
+        <li>
+          <span class="step__n" aria-hidden="true">1</span>
+          <h3>Prepare the artifact</h3>
+          <p>A PPTX, DOCX, ODP or ODT is rendered to PDF first. Slide order, what shares
+            a slide, what got shrunk to a footnote: all of it carries message, and
+            pulling the words out throws it away.</p>
+        </li>
+        <li>
+          <span class="step__n" aria-hidden="true">2</span>
+          <h3>Name the reader, write the key</h3>
+          <p>Not &ldquo;executives&rdquo; but &ldquo;a board member who has not read the
+            source document and has eleven minutes.&rdquo; Then three to five things they
+            must leave with, each one markable right or wrong. If you cannot write that
+            list, the document has no message yet.</p>
+        </li>
+        <li>
+          <span class="step__n" aria-hidden="true">3</span>
+          <h3>Score the clarity index</h3>
+          <p>Failures worst first, each with the smallest edit that would pass it. Under
+            70 the run stops here. Structural problems drown out anything a reader could
+            tell you, and fixing them costs less than measuring twice.</p>
+        </li>
+        <li>
+          <span class="step__n" aria-hidden="true">4</span>
+          <h3>Send the reader in, then decide about the cloze</h3>
+          <p>Score what comes back against the key from step 2. A cloze test earns its
+            cost only when the audience cannot ask questions and being misunderstood
+            would be expensive.</p>
+        </li>
+      </ol>
+
+      <pre class="code"><code><span class="cmt"># file · who the reader is · the source it was derived from</span>
+<b>/message-test:run</b> board-deck.pptx <span class="cmt">\</span>
+    "a board member with 11 minutes" <span class="cmt">\</span>
+    governance/the-source-document.md</code></pre>
+    </section>
+
+    <section class="module" id="install" aria-labelledby="install-h">
+      <p class="module__legend">Install</p>
+      <h2 id="install-h">Install</h2>
+      <p>Two lines in Claude Code. The plugin brings three skills and one command.</p>
+
+      <pre class="code"><code><b>/plugin marketplace add cocodedk/message-test</b>
+<b>/plugin install message-test@message-test</b></code></pre>
+
+      <p class="note" style="margin-block-start:1rem">Apache-2.0. The cloze sheet builder
+        and the text extractor are plain Python and need nothing beyond a standard
+        install.</p>
+    </section>
+
+    <section class="module" id="sources" aria-labelledby="sources-h">
+      <p class="module__legend">Provenance</p>
+      <h2 id="sources-h">Where the instruments come from</h2>
+      <p>None of this was invented here. Two of the three are published instruments with
+        published thresholds, which is the only reason the numbers can be compared to
+        anything.</p>
+
+      <ul class="refs">
+        <li>
+          <span class="refs__src">ISO 24495-1:2023</span>
+          <p>The plain language standard. It defines the target as a reader outcome,
+            readers get what they need, can find it, understand it and use it, and it
+            rejects readability formulas as the test of success.</p>
+          <p class="refs__link"><a href="https://www.iso.org/standard/78907.html" target="_blank" rel="noreferrer">iso.org &rarr;</a></p>
+        </li>
+        <li>
+          <span class="refs__src">CDC Clear Communication Index</span>
+          <p>Twenty scored items out of 100, 90 to pass, about fifteen minutes.
+            <code>clarity-index</code> adapts its seven published areas for general
+            documents. When a score has to stand up formally, use the CDC score sheet
+            itself and say which one you used.</p>
+          <p class="refs__link"><a href="https://www.cdc.gov/ccindex/pdf/full-index-score-sheet.pdf" target="_blank" rel="noreferrer">Score sheet, PDF &rarr;</a></p>
+        </li>
+        <li>
+          <span class="refs__src">Cloze procedure &middot; Taylor 1953</span>
+          <p>Still the basis several readability formulas were calibrated against. The 60
+            percent threshold and the every-sixth-word interval follow the method as
+            Nielsen Norman Group describes it.</p>
+          <p class="refs__link"><a href="https://www.nngroup.com/articles/cloze-test-reading-comprehension/" target="_blank" rel="noreferrer">nngroup.com &rarr;</a></p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="caveat" aria-labelledby="caveat-h">
+      <h2 id="caveat-h">What none of this proves</h2>
+      <p>That the message is right. That the audience will agree with it. That a
+        particular person will act on it.</p>
+      <p>What it catches is the document that says something other than what you meant,
+        which is the failure that goes unnoticed longest.</p>
+    </section>
+
+  </div>
+</main>
+
+<footer><p>Apache-2.0 &nbsp;|&nbsp; © 2026 <a href="https://cocode.dk" target="_blank" rel="noreferrer">Cocode</a> &nbsp;|&nbsp; Created by <a href="https://linkedin.com/in/babakbandpey" target="_blank" rel="noreferrer">Babak Bandpey</a></p></footer>
+
+</body>
+</html>

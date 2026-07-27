@@ -15,6 +15,7 @@
         "email": "bb@cocode.dk"
       },
       "category": "writing",
+      "version": "1.0.1",
       "source": "./plugins/message-test"
     }
   ]

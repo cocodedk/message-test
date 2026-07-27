@@ -1,12 +1,17 @@
 ---
 description: Measure how well a document conveys its message
-argument-hint: [file] [who the reader is] [source document the file came from]
+argument-hint: "[file] [\"who the reader is\"] [\"source document the file came from\"]"
 ---
 
 Measure whether `$1` delivers its message.
 
 The reader, if given, is: $2
 The source document it was derived from, if given, is: $3
+
+Positional arguments split on whitespace, so these bind correctly only when each was
+quoted. If `$2` or `$3` looks like a stray fragment of a longer unquoted phrase rather than
+a coherent answer, treat it as absent and ask for the reader instead of proceeding on it.
+The full invocation was: $ARGUMENTS
 
 Work in this order and stop at the first step that fails badly enough to make
 the later ones pointless.

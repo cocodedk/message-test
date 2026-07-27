@@ -1,0 +1,70 @@
+name: Release
+
+# Plugin releases are tagged `message-test--v<version>`, the tag form
+# `claude plugin tag` expects. The version is NOT bumped here — bump it in
+# plugins/message-test/.claude-plugin/plugin.json and .claude-plugin/marketplace.json
+# via a PR first, then run this. That keeps the workflow from pushing commits to a
+# protected branch.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5
+        with:
+          python-version: '3.12'
+
+      - name: Install validator dependencies
+        run: pip install --quiet pyyaml
+
+      - name: Validate before releasing
+        run: |
+          python3 scripts/validate-plugin.py
+          sh tests/smoke.sh
+
+      - name: Read version and check manifests agree
+        id: version
+        run: |
+          set -eu
+          plugin_version=$(python3 -c "import json;print(json.load(open('plugins/message-test/.claude-plugin/plugin.json'))['version'])")
+          market_version=$(python3 -c "import json;print(json.load(open('.claude-plugin/marketplace.json'))['plugins'][0].get('version',''))")
+          if [ -n "$market_version" ] && [ "$market_version" != "$plugin_version" ]; then
+            echo "marketplace.json version ($market_version) != plugin.json version ($plugin_version)" >&2
+            exit 1
+          fi
+          echo "version=$plugin_version" >> "$GITHUB_OUTPUT"
+          echo "tag=message-test--v$plugin_version" >> "$GITHUB_OUTPUT"
+
+      - name: Refuse to re-tag an existing version
+        run: |
+          set -eu
+          tag="${{ steps.version.outputs.tag }}"
+          if git rev-parse "$tag" >/dev/null 2>&1; then
+            echo "$tag already exists — bump the version in plugin.json first" >&2
+            exit 1
+          fi
+
+      - name: Tag and push
+        run: |
+          set -eu
+          git config user.email "github-actions@github.com"
+          git config user.name "github-actions[bot]"
+          git tag "${{ steps.version.outputs.tag }}"
+          git push origin "${{ steps.version.outputs.tag }}"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@72f2c25fcb47643c292f7107632f7a47c1df5cd8 # v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: message-test v${{ steps.version.outputs.version }}
+          generate_release_notes: true

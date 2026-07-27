@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: ['**']
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5
+        with:
+          python-version: '3.12'
+
+      - name: Install validator dependencies
+        run: pip install --quiet pyyaml
+
+      - name: Validate manifests, frontmatter and script wiring
+        run: python3 scripts/validate-plugin.py
+
+      - name: Check relative markdown links resolve
+        run: python3 scripts/check-links.py
+
+      - name: Smoke-test extract.py and cloze.py
+        run: sh tests/smoke.sh

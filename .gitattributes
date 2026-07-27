@@ -1,0 +1,22 @@
+# Normalize all text files to LF on commit
+* text=auto eol=lf
+
+*.md        text eol=lf
+*.py        text eol=lf
+*.sh        text eol=lf
+*.json      text eol=lf
+*.yaml      text eol=lf
+*.yml       text eol=lf
+*.html      text eol=lf
+*.css       text eol=lf
+*.txt       text eol=lf
+
+# Binary files — never diff or convert
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.gif       binary
+*.ico       binary
+*.pdf       binary
+*.zip       binary
+*.woff2     binary
