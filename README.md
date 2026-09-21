@@ -9,8 +9,8 @@ matters when a document has to carry a decision.
 
 ## Website
 
-- [English](https://cocodedk.github.io/message-test/)
-- [فارسی (Persian)](https://cocodedk.github.io/message-test/fa/)
+- [English](https://message-test.cocode.dk/)
+- [فارسی (Persian)](https://message-test.cocode.dk/fa/)
 
 ---
 

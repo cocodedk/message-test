@@ -19,7 +19,7 @@ Three rules govern the method: a language model must never take the cloze test, 
 
 - [README](https://github.com/cocodedk/message-test/blob/main/README.md): installation, usage, and what none of this proves
 - [CONTRIBUTING](https://github.com/cocodedk/message-test/blob/main/CONTRIBUTING.md): the rules the content must keep, and the YAML frontmatter trap that silently drops command metadata
-- [Website](https://cocodedk.github.io/message-test/): English and Persian
+- [Website](https://message-test.cocode.dk/): English and Persian
 
 ## Optional
 

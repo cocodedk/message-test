@@ -3,23 +3,23 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://cocodedk.github.io/message-test/</loc>
+    <loc>https://message-test.cocode.dk/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://cocodedk.github.io/message-test/"/>
-    <xhtml:link rel="alternate" hreflang="fa" href="https://cocodedk.github.io/message-test/fa/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://cocodedk.github.io/message-test/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://message-test.cocode.dk/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://message-test.cocode.dk/fa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://message-test.cocode.dk/"/>
   </url>
 
   <url>
-    <loc>https://cocodedk.github.io/message-test/fa/</loc>
+    <loc>https://message-test.cocode.dk/fa/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://cocodedk.github.io/message-test/"/>
-    <xhtml:link rel="alternate" hreflang="fa" href="https://cocodedk.github.io/message-test/fa/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://cocodedk.github.io/message-test/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://message-test.cocode.dk/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://message-test.cocode.dk/fa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://message-test.cocode.dk/"/>
   </url>
 
 </urlset>
