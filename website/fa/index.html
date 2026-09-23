@@ -62,6 +62,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Public+Sans:wght@400;600&family=Saira:wght@500;600&family=Vazirmatn:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="https://brand.cocode.dk/v1.css">
+<script type="module" src="https://brand.cocode.dk/v1.js"></script>
 
 <script type="application/ld+json">
 {
@@ -97,31 +99,13 @@
 
 <a class="skip" href="#main">رفتن به متن</a>
 
-<header class="site-head">
-  <div class="wrap">
-    <a class="brand" href="#top">
-      <svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-        <rect width="32" height="32" rx="5" fill="#0c1214"/>
-        <rect x="5" y="13.5" width="22" height="6" fill="#263236"/>
-        <rect x="5" y="13.5" width="13" height="6" fill="#ffa42b"/>
-        <rect x="21.5" y="8.5" width="2.5" height="16" fill="#e8ebeb"/>
-      </svg>
-      message-test
-    </a>
-
-    <a href="../" class="lang-switch" lang="en" dir="ltr" hreflang="en">English</a>
-
-    <nav class="nav" aria-label="بخش‌های این صفحه">
-      <ul>
-        <li><a href="#instruments">ابزارها</a></li>
-        <li><a href="#interlock">قفل ایمنی</a></li>
-        <li><a href="#valid">اعتبار</a></li>
-        <li><a href="#run">یک اجرا</a></li>
-        <li><a href="#install">نصب</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<!-- The cocode.dk family frame. Without JavaScript its children show instead: a way home
+     and the language link. -->
+<cocode-head project="message-test" accent="#ffa42b" on-accent="#10171a">
+  <a href="https://cocode.dk">cocode.dk</a>
+  <a href="../" hreflang="en">EN</a>
+  <span class="on">FA</span>
+</cocode-head>
 
 <main id="main">
   <div class="wrap">
@@ -415,7 +399,11 @@
   </div>
 </main>
 
-<footer><p>Apache-2.0 &nbsp;|&nbsp; © ۱۴۰۵ <a href="https://cocode.dk" target="_blank" rel="noreferrer">Cocode</a> &nbsp;|&nbsp; ساخته شده توسط <a href="https://linkedin.com/in/babakbandpey" target="_blank" rel="noreferrer">بابک بندپی</a></p></footer>
+<footer><p>Apache-2.0</p></footer>
+
+<cocode-foot repo="cocodedk/message-test">
+  <a href="https://cocode.dk">cocode.dk</a>
+</cocode-foot>
 
 </body>
 </html>
